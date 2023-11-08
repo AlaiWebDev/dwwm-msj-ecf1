@@ -1,0 +1,22 @@
+{
+  "name": "dwwm-msj-ecf1",
+  "version": "1.0.0",
+  "description": "Proposition de projet pour correction évaluation de l'ECF 1 de la session DWWM MSJ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/AlaiWebDev/dwwm-msj-ecf1.git"
+  },
+  "author": "Alain ORLUK",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlaiWebDev/dwwm-msj-ecf1/issues"
+  },
+  "homepage": "https://github.com/AlaiWebDev/dwwm-msj-ecf1#readme",
+  "dependencies": {
+    "uuid": "^9.0.1"
+  }
+}
