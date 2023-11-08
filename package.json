@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/AlaiWebDev/dwwm-msj-ecf1/issues"
   },
-  "homepage": "https://github.com/AlaiWebDev/dwwm-msj-ecf1#readme",
-  "dependencies": {
-    "uuid": "^9.0.1"
-  }
+  "homepage": "https://github.com/AlaiWebDev/dwwm-msj-ecf1#readme"
 }

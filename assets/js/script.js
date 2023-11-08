@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
+
 let dataGetFetch;
 const getApprenants = async () => {
     const res = await fetch("https://api.jsonbin.io/v3/b/654b4bf854105e766fccffb6", {
@@ -14,11 +16,17 @@ const getApprenants = async () => {
 }
 await getApprenants();
 console.log(dataGetFetch.record);
+const newId = uuidv4();
+let dateToday = new Date();
+dateToday = `${dateToday.getDate()}/${dateToday.getMonth()}/${dateToday.getFullYear()}`
 const newApprenant = {
-    'id': Math.floor(Math.random() * 100),
+    'id': newId,
     'nom': 'GACEB',
     'prenom': 'Lina',
-    'e-mail': 'l1936@hotmail.fr'
+    'e-mail': 'l1936@hotmail.fr',
+    'formation': 'DWWM',
+    'financement': 'PRF',
+    'date-entree': dateToday
 }
 const postApprenant = async () => {
     const res = await fetch("https://api.jsonbin.io/v3/b", {
