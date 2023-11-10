@@ -77,8 +77,6 @@ Voici un exemples de données :
 
 ### **Exigences techniques**
 
-La donnée `date-entree` devra être générée par l'utilsiation d'un objet `Date`. Interdiction de coder la date en dur "23/11/2023".
-
 Pour générer un `id`, vous utiliserez la librairie `uuid`..
 
 Vous ne pourrez pas l'installer avec `npm` donc vous utiliserez un import par **url**

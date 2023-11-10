@@ -1,45 +1,44 @@
-import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
-
-let dataGetFetch;
-const getApprenants = async () => {
-    const res = await fetch("https://api.jsonbin.io/v3/b/654b4bf854105e766fccffb6", {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-type': 'application/json',
-            'X-Master-Key': '$2a$10$6AtMLwgZABV2SdLcW94VNO.naWSgGpBGVJfgVlHA7yZY2OJ2BzjOy'
-            
-        }
-    });
-    dataGetFetch = await res.json();
-    console.log(dataGetFetch);
-}
-await getApprenants();
-console.log(dataGetFetch.record);
-const newId = uuidv4();
-let dateToday = new Date();
-dateToday = `${dateToday.getDate()}/${dateToday.getMonth()}/${dateToday.getFullYear()}`
-const newApprenant = {
-    'id': newId,
-    'nom': 'GACEB',
-    'prenom': 'Lina',
-    'e-mail': 'l1936@hotmail.fr',
-    'formation': 'DWWM',
-    'financement': 'PRF',
-    'date-entree': dateToday
-}
-const postApprenant = async () => {
-    const res = await fetch("https://api.jsonbin.io/v3/b", {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json',
-            'X-Master-Key': '$2a$10$6AtMLwgZABV2SdLcW94VNO.naWSgGpBGVJfgVlHA7yZY2OJ2BzjOy',
-            'X-Bin-Name': 'Gaceb-Collection',
-        },
-        body: JSON.stringify(newApprenant)
-    });
-    return res.json();
-}
-await postApprenant({ answer:42}).then((data) => {
-    console.log(data);
+import exportApprenants from './allApprenants.js'
+//
+const allApprenants = exportApprenants;
+console.log("Tous les apprenants : ", allApprenants);
+export default allApprenants;
+//
+// Garnissage et injection du tableau
+const thead = document.querySelector("thead");
+const tbody = document.querySelector("tbody");
+//
+// Garnissage et injection de l'entête
+const uneRow = document.createElement("tr");
+Object.keys(allApprenants[0]).forEach(propriete => {
+    let unTdHead = document.createElement("th");
+    unTdHead.textContent = propriete.toUpperCase();
+    uneRow.append(unTdHead);
+});
+thead.appendChild(uneRow);
+// Garnissage et injection des lignes et céllules
+allApprenants.forEach(apprenant => {
+    const uneRow = document.createElement("tr");
+    for (const [key, value] of Object.entries(apprenant)) {
+        const uneTd = document.createElement("td");
+        uneTd.textContent = value;
+        uneRow.append(uneTd);
+      }
+    tbody.appendChild(uneRow);
+});
+// On écoute la recherche
+const inputSearch = document.querySelector("input[type='text']");
+inputSearch.addEventListener("input", (eventInput) => {
+    document.querySelector("#search_result").innerHTML = "";
+    const searchResult = allApprenants.filter(unApprenant => {
+        return unApprenant.nom.startsWith(eventInput.target.value);
+    })
+    if (eventInput.target.value) {
+        searchResult.forEach(nomApprenant => {
+            let li = document.createElement("li");
+            li.textContent = nomApprenant.nom;
+            document.querySelector("#search_result").appendChild(li);
+        })
+    }
+    
 });
