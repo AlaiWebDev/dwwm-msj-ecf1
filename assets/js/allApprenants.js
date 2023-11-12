@@ -10,10 +10,10 @@ function compare( a, b ) {
 //
 async function exportApprenants() {
     let dataGetFetch;
-    const BIND_ID = "654e021c54105e766fcdffcf";
+    const BIN_ID = "654e021c54105e766fcdffcf";
     const MASTER_KEY = "$2a$10$6AtMLwgZABV2SdLcW94VNO.naWSgGpBGVJfgVlHA7yZY2OJ2BzjOy";
     const getApprenants = async () => {
-        const res = await fetch(`https://api.jsonbin.io/v3/b/${BIND_ID}`, {
+        const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -22,9 +22,10 @@ async function exportApprenants() {
             }
         });
         dataGetFetch = await res.json();
+        console.log(dataGetFetch);
     }
     await getApprenants();
-    const allApprenants = dataGetFetch.record.apprenants;
+    const allApprenants = dataGetFetch.record;
     allApprenants.sort( compare );
     return allApprenants;
 }

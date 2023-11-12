@@ -1,6 +1,9 @@
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 import exportApprenants from './allApprenants.js'
 console.log(exportApprenants);
+console.log();
+const BIN_ID = "654e216d54105e766fce0b0f";
+const MASTER_KEY = "$2a$10$6AtMLwgZABV2SdLcW94VNO.naWSgGpBGVJfgVlHA7yZY2OJ2BzjOy";
 let complete = false;
 document.querySelector("#plus_btn").addEventListener("click", (eventClick) => {
     const newLine = document.createElement("article");
@@ -15,8 +18,8 @@ document.querySelector("#plus_btn").addEventListener("click", (eventClick) => {
     document.querySelector("fieldset").insertBefore(newLine, eventClick.target);
 })
 
-document.querySelector("#enregistrer").addEventListener("click", async (eventClick) => {
-    const bodyRequest = {apprenants: []};
+document.querySelector("#enregistrer").addEventListener("click", async () => {
+    const bodyRequest = exportApprenants;
     document.querySelectorAll("form").forEach(async form => {
         const formData = new FormData(form);
         const newId = uuidv4();
@@ -29,20 +32,19 @@ document.querySelector("#enregistrer").addEventListener("click", async (eventCli
             }
             formDataObj[key] = value;
         });
-        if (complete) bodyRequest.apprenants.push(formDataObj);
+        console.log((BIN_ID));
+        if (complete) bodyRequest.push(formDataObj);
         complete = false;
     })
     await postApprenant(bodyRequest);
-    console.log("bodyRequest.apprenants ", bodyRequest);
 });
-//
-
+// Ajout du nouvel objet
 const postApprenant = async (bodyRequest) => {
-    const res = await fetch("https://api.jsonbin.io/v3/b", {
-        method: 'POST',
+    const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
+        method: 'PUT',
         headers: {
             'Content-type': 'application/json',
-            'X-Master-Key': '$2a$10$6AtMLwgZABV2SdLcW94VNO.naWSgGpBGVJfgVlHA7yZY2OJ2BzjOy',
+            'X-Master-Key': MASTER_KEY,
             'X-Bin-Name': 'Liste-Apprenants',
         },
         body: JSON.stringify(bodyRequest)

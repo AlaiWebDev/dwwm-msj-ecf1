@@ -6,6 +6,10 @@
   font-size: 16px;
 }
 
+.display-none {
+  display: none;
+}
+
 body {
   font-family: "Abril Fatface", serif;
   width: 100%;

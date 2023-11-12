@@ -1,4 +1,4 @@
-import exportApprenants from './allApprenants.js'
+import exportApprenants from './allApprenants.js';
 //
 const allApprenants = exportApprenants;
 console.log("Tous les apprenants : ", allApprenants);
@@ -12,8 +12,11 @@ const tbody = document.querySelector("tbody");
 const uneRow = document.createElement("tr");
 Object.keys(allApprenants[0]).forEach(propriete => {
     let unTdHead = document.createElement("th");
-    unTdHead.textContent = propriete.toUpperCase();
-    uneRow.append(unTdHead);
+    if (propriete != "id") {
+        unTdHead.textContent = propriete.toUpperCase();
+        uneRow.append(unTdHead);
+    }
+    
 });
 thead.appendChild(uneRow);
 // Garnissage et injection des lignes et céllules
@@ -22,6 +25,9 @@ allApprenants.forEach(apprenant => {
     for (const [key, value] of Object.entries(apprenant)) {
         const uneTd = document.createElement("td");
         uneTd.textContent = value;
+        if (key == "id") {
+            uneTd.classList.add("display-none");
+        }
         uneRow.append(uneTd);
       }
     tbody.appendChild(uneRow);
