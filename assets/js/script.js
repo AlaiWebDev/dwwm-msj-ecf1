@@ -1,7 +1,6 @@
 import exportApprenants from './allApprenants.js';
 //
 const allApprenants = exportApprenants;
-console.log("Tous les apprenants : ", allApprenants);
 export default allApprenants;
 //
 // Garnissage et injection du tableau
@@ -35,8 +34,9 @@ allApprenants.forEach(apprenant => {
 // On écoute le click sur une ligne
 document.querySelectorAll("tbody tr").forEach(row => {
     row.addEventListener("click", (eventClick) => {
-        console.log(eventClick.target.parentElement.children[0]);
-        window.location.href = `../../pages/modify.html?id-apprenant=${eventClick.target.parentElement.children[0].textContent}`
+        console.log(eventClick.target.parentElement.children);
+        let idValue = Array.from(eventClick.target.parentElement.children).find(node => node.classList.contains("display-none")).textContent;
+        window.location.href = `../../pages/modify.html?id-apprenant=${idValue}`
     })
 });
 // On écoute la recherche

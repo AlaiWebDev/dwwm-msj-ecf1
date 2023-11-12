@@ -104,15 +104,36 @@ body main fieldset article form label input:not(#email), body main fieldset arti
   text-transform: uppercase;
   letter-spacing: 3px;
 }
-body main fieldset #plus_btn, body main fieldset #enregistrer, body main fieldset #btn_enregistrer_modif {
+body main fieldset article #btn_enregistrer_modif {
+  font-family: "Abril Fatface", serif;
+  justify-self: center;
+  cursor: pointer;
+}
+body main fieldset article #btn_enregistrer_modif:hover {
+  color: white;
+  border-color: white;
+}
+body main fieldset #plus_btn, body main fieldset #enregistrer, body main fieldset #btn_enregistrer_modif, body main fieldset .btn_back {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0.2rem auto;
   padding: 5px;
   border-radius: 2px;
+  cursor: pointer;
   background-color: #4EA641;
+  font-family: "Abril Fatface", serif;
 }
-body main fieldset #plus_btn:hover, body main fieldset #enregistrer:hover {
+body main fieldset .btn_back {
+  background-color: #04B2D9;
+  text-decoration: none;
+  border: 2px solid black;
+  color: black;
+}
+body main fieldset .btn_back:hover {
+  color: white;
+  border-color: white;
+}
+body main fieldset #plus_btn:hover, body main fieldset #enregistrer:hover, body main fieldset .btn_back:hover {
   color: white;
   border-color: white;
 }
@@ -148,9 +169,6 @@ body main table td, body main table th {
 }
 body main table th {
   background-color: #F2F2F2;
-}
-body main table #btn_enregistrer_modif {
-  justify-self: center;
 }
 body footer {
   width: 100%;

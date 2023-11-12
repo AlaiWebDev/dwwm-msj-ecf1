@@ -1,5 +1,4 @@
 import exportApprenants from './allApprenants.js'
-console.log(exportApprenants);
 let idApprenant = (new URL(document.location)).searchParams.get("id-apprenant");
 let apprenantToModify = exportApprenants.find((apprenant) => apprenant.id == idApprenant);
 let inputs = document.querySelectorAll("input");

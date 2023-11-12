@@ -1,7 +1,5 @@
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
 import exportApprenants from './allApprenants.js'
-console.log(exportApprenants);
-console.log();
 const BIN_ID = "654e216d54105e766fce0b0f";
 const MASTER_KEY = "$2a$10$6AtMLwgZABV2SdLcW94VNO.naWSgGpBGVJfgVlHA7yZY2OJ2BzjOy";
 let complete = false;
@@ -32,7 +30,6 @@ document.querySelector("#enregistrer").addEventListener("click", async () => {
             }
             formDataObj[key] = value;
         });
-        console.log((BIN_ID));
         if (complete) bodyRequest.push(formDataObj);
         complete = false;
     })

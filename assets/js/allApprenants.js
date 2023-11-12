@@ -22,7 +22,6 @@ async function exportApprenants() {
             }
         });
         dataGetFetch = await res.json();
-        console.log(dataGetFetch);
     }
     await getApprenants();
     const allApprenants = dataGetFetch.record;
