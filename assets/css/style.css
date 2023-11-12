@@ -1,4 +1,5 @@
-* {
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Sans:opsz,wght@9..40,500&family=Hind:wght@600&family=Martian+Mono:wght@500&family=Roboto:wght@300;500&display=swap");
+*, ::before, ::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -6,6 +7,7 @@
 }
 
 body {
+  font-family: "Abril Fatface", serif;
   width: 100%;
   min-height: 100vh;
   display: grid;
@@ -30,10 +32,12 @@ body header nav ul:not(#search_result) {
 }
 body header nav ul:not(#search_result) li {
   list-style-type: none;
-  margin: auto 0.5rem;
+}
+body header nav ul:not(#search_result) li:not(#search_result li) {
+  margin: auto 0.3rem;
   padding: 0.5rem;
 }
-body header nav ul:not(#search_result) li:not(:nth-of-type(3)) {
+body header nav ul:not(#search_result) li:not(#search_result li):not(:nth-of-type(3)) {
   box-shadow: 0 8px 6px -6px black;
   border: 2px solid black;
   border-radius: 2px;
@@ -41,23 +45,23 @@ body header nav ul:not(#search_result) li:not(:nth-of-type(3)) {
   padding: 15px 10px;
   background-color: #4EA641;
 }
-body header nav ul:not(#search_result) li:not(:nth-of-type(3)):hover {
+body header nav ul:not(#search_result) li:not(#search_result li):not(:nth-of-type(3)):hover {
   color: white;
   border-color: white;
 }
-body header nav ul:not(#search_result) li input {
+body header nav ul:not(#search_result) li:not(#search_result li) input {
   padding: 0.1rem;
   box-shadow: inset 1px 1px 10px 1px grey;
 }
-body header nav ul:not(#search_result) li a, body header nav ul:not(#search_result) li a:visited, body header nav ul:not(#search_result) li a:hover {
+body header nav ul:not(#search_result) li:not(#search_result li) a, body header nav ul:not(#search_result) li:not(#search_result li) a:visited, body header nav ul:not(#search_result) li:not(#search_result li) a:hover {
   text-decoration: none;
   color: unset;
 }
-body header nav ul:not(#search_result) li #search_result {
+body header nav ul:not(#search_result) li:not(#search_result li) #search_result {
   position: absolute;
   top: 10;
 }
-body header nav ul:not(#search_result) li #search_result li {
+body header nav ul:not(#search_result) li:not(#search_result li) #search_result li {
   background-color: #F2F2F2;
   cursor: pointer;
 }
@@ -76,6 +80,11 @@ body main fieldset legend {
   font-style: italic;
   padding: 0 0.4rem;
 }
+body main fieldset article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 body main fieldset article form {
   display: flex;
 }
@@ -91,7 +100,7 @@ body main fieldset article form label input:not(#email), body main fieldset arti
   text-transform: uppercase;
   letter-spacing: 3px;
 }
-body main fieldset #plus_btn, body main fieldset #enregistrer {
+body main fieldset #plus_btn, body main fieldset #enregistrer, body main fieldset #btn_enregistrer_modif {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0.2rem auto;
@@ -116,11 +125,16 @@ body main table {
   margin: auto;
   border: 2px solid #D9048E;
   border-collapse: collapse;
+  font-family: "Roboto", sans-serif;
 }
 body main table tbody {
   height: 120px;
   overflow-y: auto;
   overflow-x: hidden;
+}
+body main table tr:hover {
+  opacity: 0.5;
+  cursor: pointer;
 }
 body main table td, body main table th {
   border: 1px solid black;
@@ -130,6 +144,9 @@ body main table td, body main table th {
 }
 body main table th {
   background-color: #F2F2F2;
+}
+body main table #btn_enregistrer_modif {
+  justify-self: center;
 }
 body footer {
   width: 100%;

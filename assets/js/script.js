@@ -26,6 +26,13 @@ allApprenants.forEach(apprenant => {
       }
     tbody.appendChild(uneRow);
 });
+// On écoute le click sur une ligne
+document.querySelectorAll("tbody tr").forEach(row => {
+    row.addEventListener("click", (eventClick) => {
+        console.log(eventClick.target.parentElement.children[0]);
+        window.location.href = `../../pages/modify.html?id-apprenant=${eventClick.target.parentElement.children[0].textContent}`
+    })
+});
 // On écoute la recherche
 const inputSearch = document.querySelector("input[type='text']");
 inputSearch.addEventListener("input", (eventInput) => {

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script type="module" src="../assets/js/modify.js" defer></script>
+    <title>Modifier apprenant</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html"><img src="../assets/img/logo-afpa.svg" alt="Logo AFPA"></a>
+            <ul>
+                <li><a href="../index.html">Accueil</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+    <main>
+        <h1>Créer le répertoire des apprenants</h1>
+        <fieldset>
+            <legend>Informations</legend>
+            <article>
+                <form action="" name="ligne-apprenant">
+                    <label>Nom<input type="text" name="nom"></label>
+                    <label>Prénom<input type="text" id="firstname" name="prenom"></label>
+                    <label>E-mail<input type="text" id="email" name="e-mail"></label>
+                    <label>Formation<input type="text" id="formation" name="formation" placeholder="DWWM, TSSR, …"></label>
+                    <label>Financement<input type="text" id="financement" name="financement" placeholder="PE, PRF, …"></label>
+                    <label>Date d'entrée<input type="text" name="date-entree" placeholder="jj/mm/aaaa"></label>
+                </form>
+                <button type="submit" id="btn_enregistrer_modif">Enregistrer</button>
+            </article>
+        </fieldset>
+    </main>
+</html>
