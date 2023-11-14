@@ -44,7 +44,7 @@ body header nav ul:not(#search_result) li:not(#search_result li) {
 body header nav ul:not(#search_result) li:not(#search_result li):not(:nth-of-type(3)) {
   box-shadow: 0 8px 6px -6px black;
   border: 2px solid black;
-  border-radius: 2px;
+  border-radius: 3px;
   line-height: 0;
   padding: 15px 10px;
   background-color: #4EA641;
@@ -63,7 +63,7 @@ body header nav ul:not(#search_result) li:not(#search_result li) a, body header 
 }
 body header nav ul:not(#search_result) li:not(#search_result li) #search_result {
   position: absolute;
-  top: 10;
+  top: 10px;
 }
 body header nav ul:not(#search_result) li:not(#search_result li) #search_result li {
   background-color: #F2F2F2;
@@ -113,15 +113,32 @@ body main fieldset article #btn_enregistrer_modif:hover {
   color: white;
   border-color: white;
 }
-body main fieldset #plus_btn, body main fieldset #enregistrer, body main fieldset #btn_enregistrer_modif, body main fieldset .btn_back {
+body main fieldset article .popup {
+  position: relative;
+  top: -130px;
+  display: flex;
+  flex-direction: column;
+  visibility: hidden;
+  padding: 1rem;
+  border: 2px solid black;
+  border-radius: 3px;
+  background-color: #F2F2F2;
+}
+body main fieldset article .popup button {
+  margin: 1rem auto;
+}
+body main fieldset #plus_btn, body main fieldset #enregistrer, body main fieldset #btn_enregistrer_modif, body main fieldset .btn_back, body main fieldset #btn_supprimer_modif, body main fieldset #btn_supprimer_confirm, body main fieldset #btn_supprimer_annuler {
   width: -moz-fit-content;
   width: fit-content;
   margin: 0.2rem auto;
   padding: 5px;
-  border-radius: 2px;
+  border-radius: 3px;
   cursor: pointer;
   background-color: #4EA641;
   font-family: "Abril Fatface", serif;
+}
+body main fieldset #btn_supprimer_modif, body main fieldset #btn_supprimer_confirm {
+  background-color: #D9048E;
 }
 body main fieldset .btn_back {
   background-color: #04B2D9;
@@ -129,11 +146,7 @@ body main fieldset .btn_back {
   border: 2px solid black;
   color: black;
 }
-body main fieldset .btn_back:hover {
-  color: white;
-  border-color: white;
-}
-body main fieldset #plus_btn:hover, body main fieldset #enregistrer:hover, body main fieldset .btn_back:hover {
+body main fieldset #plus_btn:hover, body main fieldset #enregistrer:hover, body main fieldset .btn_back:hover, body main fieldset #btn_supprimer_modif:hover, body main fieldset #btn_supprimer_confirm:hover, body main fieldset #btn_supprimer_confirm:hover, body main fieldset #btn_supprimer_annuler:hover {
   color: white;
   border-color: white;
 }
@@ -157,7 +170,7 @@ body main table tbody {
   overflow-y: auto;
   overflow-x: hidden;
 }
-body main table tr:hover {
+body main table tbody tr:hover {
   opacity: 0.5;
   cursor: pointer;
 }

@@ -1,7 +1,6 @@
 import exportApprenants from './allApprenants.js';
 //
 const allApprenants = exportApprenants;
-export default allApprenants;
 //
 // Garnissage et injection du tableau
 const thead = document.querySelector("thead");
@@ -15,9 +14,9 @@ Object.keys(allApprenants[0]).forEach(propriete => {
         unTdHead.textContent = propriete.toUpperCase();
         uneRow.append(unTdHead);
     }
-    
 });
 thead.appendChild(uneRow);
+//
 // Garnissage et injection des lignes et céllules
 allApprenants.forEach(apprenant => {
     const uneRow = document.createElement("tr");
@@ -31,14 +30,17 @@ allApprenants.forEach(apprenant => {
       }
     tbody.appendChild(uneRow);
 });
+//
 // On écoute le click sur une ligne
 document.querySelectorAll("tbody tr").forEach(row => {
     row.addEventListener("click", (eventClick) => {
-        console.log(eventClick.target.parentElement.children);
+        console.log("eventClick.target.parentElement.children : ", eventClick.target.parentElement.children);
         let idValue = Array.from(eventClick.target.parentElement.children).find(node => node.classList.contains("display-none")).textContent;
+        console.log("idValue : ",idValue);
         window.location.href = `../../pages/modify.html?id-apprenant=${idValue}`
     })
 });
+//
 // On écoute la recherche
 const inputSearch = document.querySelector("input[type='text']");
 inputSearch.addEventListener("input", (eventInput) => {
@@ -53,5 +55,4 @@ inputSearch.addEventListener("input", (eventInput) => {
             document.querySelector("#search_result").appendChild(li);
         })
     }
-    
 });

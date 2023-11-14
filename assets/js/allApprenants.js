@@ -16,8 +16,6 @@ async function exportApprenants() {
         const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
             method: 'GET',
             headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-type': 'application/json',
                 'X-Master-Key': MASTER_KEY
             }
         });
@@ -30,4 +28,5 @@ async function exportApprenants() {
 }
 //
 let result = await exportApprenants();
-export default result;
+const apprenants = result
+export default apprenants;

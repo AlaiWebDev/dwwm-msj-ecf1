@@ -3,6 +3,8 @@ import exportApprenants from './allApprenants.js'
 const BIN_ID = "654e216d54105e766fce0b0f";
 const MASTER_KEY = "$2a$10$6AtMLwgZABV2SdLcW94VNO.naWSgGpBGVJfgVlHA7yZY2OJ2BzjOy";
 let complete = false;
+//
+// On écoute le click pour ajouter des lignes de saisie
 document.querySelector("#plus_btn").addEventListener("click", (eventClick) => {
     const newLine = document.createElement("article");
     newLine.innerHTML = `<form action="" name="ligne-apprenant">
@@ -14,8 +16,9 @@ document.querySelector("#plus_btn").addEventListener("click", (eventClick) => {
     <label><input type="text" name="date-entree"></label>
 </form>`;
     document.querySelector("fieldset").insertBefore(newLine, eventClick.target);
-})
-
+});
+//
+// On écoute le click pour enregistrer les données saisies
 document.querySelector("#enregistrer").addEventListener("click", async () => {
     const bodyRequest = exportApprenants;
     document.querySelectorAll("form").forEach(async form => {
@@ -35,7 +38,8 @@ document.querySelector("#enregistrer").addEventListener("click", async () => {
     })
     await postApprenant(bodyRequest);
 });
-// Ajout du nouvel objet
+//
+// Ajout du nouvel objet et implémentation fetch()
 const postApprenant = async (bodyRequest) => {
     const res = await fetch(`https://api.jsonbin.io/v3/b/${BIN_ID}`, {
         method: 'PUT',

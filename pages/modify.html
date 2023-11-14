@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../assets/img/icon.png">
     <link rel="stylesheet" href="../assets/css/style.css">
-    <script type="module" src="../assets/js/modify.js" defer></script>
+    <script type="module" src="../assets/js/modify.js"></script>
     <title>Modifier apprenant</title>
 </head>
 <body>
@@ -16,13 +17,13 @@
             </ul>
         </nav>
     </header>
-</body>
     <main>
-        <h1>Créer le répertoire des apprenants</h1>
+        <h1>Modifier les informations d'un(e) apprenant(e)</h1>
         <fieldset>
             <legend>Informations</legend>
             <article>
-                <form action="" name="ligne-apprenant">
+                <h2>Apprenant</h2>
+                <form action="#" name="ligne-apprenant">
                     <label>Nom<input type="text" name="nom"></label>
                     <label>Prénom<input type="text" id="firstname" name="prenom"></label>
                     <label>E-mail<input type="text" id="email" name="e-mail"></label>
@@ -30,9 +31,16 @@
                     <label>Financement<input type="text" id="financement" name="financement" placeholder="PE, PRF, …"></label>
                     <label>Date d'entrée<input type="text" name="date-entree" placeholder="jj/mm/aaaa"></label>
                 </form>
-                <button type="submit" id="btn_enregistrer_modif">Enregistrer</button>
+                <button type="submit" id="btn_enregistrer_modif">Modifier</button>
+                <button type="submit" id="btn_supprimer_modif">Supprimer</button>
                 <a href="../index.html" class="btn_back">Retour</a>
+                <div class="popup">
+                    Êtes-vous sûr de vouloir supprimer cet apprenant ?
+                    <button id="btn_supprimer_annuler">Annuler</button>
+                    <button id="btn_supprimer_confirm">Confirmer</button>
+                </div>
             </article>
         </fieldset>
     </main>
+</body>
 </html>

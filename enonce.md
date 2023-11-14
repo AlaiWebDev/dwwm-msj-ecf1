@@ -87,7 +87,7 @@ Voici comment l'implémenter :
 Dans votre script JavaScript de type `module`:
 
 ```js
-import { v4 as uuidv4 } from 'https://jspm.dev/uuid';//Tout en haut de votre script
+import { v4 as uuidv4 } from 'https://jspm.dev/uuid'; //Tout en haut de votre script
 ```
 
 Puis au sein du script :  
